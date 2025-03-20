@@ -18,7 +18,7 @@ RUN set -ex && \
     diffutils \
     git \
     perl && \
-    git clone git://github.com/theory/pgtap.git && \
+    git clone --depth 1 git://github.com/theory/pgtap.git && \
         chown -R postgres:postgres pgtap/ && \
         cd pgtap/ && \
         git checkout ${PGTAP_VERSION} && \
