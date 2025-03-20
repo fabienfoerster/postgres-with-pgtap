@@ -3,7 +3,7 @@ ARG PGTAP_VERSION="v1.3.3"
 
 FROM postgres:${POSTGRES_VERSION}
 
-COPY create-extension.sql /docker-entrypoint-initdb.d/
+COPY init-pgtap-extension.sql /docker-entrypoint-initdb.d/
 
 # TODO: move musl-locale to a builder image
 # TODO: move pgtap to a builder image
