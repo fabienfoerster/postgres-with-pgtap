@@ -17,6 +17,7 @@ RUN set -ex && \
     diffutils \
     git \
     perl && \
+    git config --global --add safe.directory '*' && \
     git clone --depth 1 https://github.com/theory/pgtap.git && \
         chown -R postgres:postgres pgtap/ && \
         cd pgtap/ && \
