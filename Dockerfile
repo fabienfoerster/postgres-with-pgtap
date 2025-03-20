@@ -5,8 +5,7 @@ FROM postgres:${POSTGRES_VERSION}
 
 COPY init-pgtap-extension.sql /docker-entrypoint-initdb.d/
 
-# TODO: move musl-locale to a builder image
-# TODO: move pgtap to a builder image
+
 RUN set -ex && \
     apk add --no-cache make && \
     apk add --no-cache --virtual .build-dependencies \
@@ -18,7 +17,7 @@ RUN set -ex && \
     diffutils \
     git \
     perl && \
-    git clone --depth 1 git://github.com/theory/pgtap.git && \
+    git clone --depth 1 https://github.com/theory/pgtap.git && \
         chown -R postgres:postgres pgtap/ && \
         cd pgtap/ && \
         git checkout ${PGTAP_VERSION} && \
